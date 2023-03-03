@@ -1,0 +1,12 @@
+{"cid": "W00000006880", "cusId": "86391903-93f8-11ec-b6b0-2ecfd471f0ae", "state": "ECTLNCoUz4KKEnG5hbo9q5_qrmark"}
+{"cid": "W00000005178", "cusId": "02be130f-0c94-11ec-a046-8e55fcb864b9", "state": "Dq3Awm5kibSkKX7Af6UNKd_qrmark"}
+{"cid": "W00000011011", "cusId": "c220dd7f-93f8-11ec-a8ca-c6e4718230e2", "state": "sefZ76vcFUnG6pDQeav3UU_qrmark"}
+{"cid": "W00000002698", "cusId": "fbe7364d-f027-11eb-a83a-9aa7228f8d96", "state": "wb6Jvt9x7xY9wsyv8TVLUA_qrmark"}
+{"cid": "W00000001946", "cusId": "2d2fb046-93f9-11ec-8c88-be4c61d53b0d", "state": "C2ewuNguSs8PUw4ifvTfTJ_qrmark"}
+{"cid": "W00000012817", "cusId": "3542130f-93f9-11ec-b6b0-2ecfd471f0ae", "state": "ZsNwaro6qfdbjnKztgQv5B_qrmark"}
+{"cid": "W00000008913", "cusId": "79145bec-93f9-11ec-8c88-be4c61d53b0d", "state": "gf22NwSfkdFz2GvAsfQBgT_qrmark"}
+{"cid": "W00000012261", "cusId": "fb1efa32-8e55-11ec-8e52-8ab197f6c11d", "state": "xTuyTJRdHmrkFvZvgCPjTf_qrmark"}
+{"cid": "W00000002942", "cusId": "9fdc569b-93f9-11ec-8793-c230d0c3b6e0", "state": "Dx8peFZetXmcXixSozDv2M_qrmark"}
+{"cid": "W00000007025", "cusId": "203618d3-93fa-11ec-8793-c230d0c3b6e0", "state": "KBcgh6ynfo4A997DW8UVTR_qrmark"}
+{"cid": "W00000004941", "cusId": "6ec50e12-93fa-11ec-8793-c230d0c3b6e0", "state": "NqogDYumAVQuAks7NcwsAK_qrmark"}
+{"cid": "W00000012300", "cusId": "7134ac87-93fa-11ec-8793-c230d0c3b6e0", "state": "VQGxxaaVP4irgCKNMRtUYL_qrmark"}

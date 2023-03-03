@@ -1,0 +1,15 @@
+{
+    "ID": "", // 节点id
+    "preNodeID": "", // 上级节点id
+    "planID": "", // 节点所属sop plan
+    "path": "0102", // 前缀导航 字符串前缀匹配 convertToTree
+    "type": 1, // 节点类型 1:root 2:filter 3:push 4:update 5:wait
+
+    // type=1 sop激活人群包
+    // type=2 前端返显人群包 多个人群包以逗号分隔
+    "filterID": "", // 人群包 返显或者条件合并
+    "eventID": "", // type=1 sop激活 事件包id
+    "cmsID": "", // type=3 素材包id
+    "taskID": "", // type=3 动作包id
+    "delayTime": 600 // type=5 wait类型节点 配置等待时长 单位秒
+}

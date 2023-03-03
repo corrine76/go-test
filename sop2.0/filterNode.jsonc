@@ -1,0 +1,5 @@
+{
+    "filterType": 1, // 筛选类型 1:属性 2:行为
+    "attributeID": "", // 属性 人群包条件id
+    "behaviorID": "" // 行为 人群包条件id
+}

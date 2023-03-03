@@ -1,0 +1,5 @@
+{
+    "taskType": 1, // task类型 1:企微朋友圈 2:企微消息 3:打标签 4:delay
+    "delayTime": 10, // 等待时长 单位秒
+    "cmsID": "" // 素材包id
+}
