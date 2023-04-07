@@ -2,9 +2,11 @@ package main
 
 import (
 	"context"
+	"encoding/base64"
 	"fmt"
 	"git.dustess.com/mk-base/util/date"
 	"sort"
+	"strings"
 	"time"
 )
 
@@ -16,7 +18,18 @@ func (s intSlice) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
 func (s intSlice) Less(i, j int) bool { return s[i] < s[j] }
 
 func main() {
-	fmt.Println(getNearNoticeTime([]string{"16:08"}))
+	str := "http://www.abc.com?ref=123"
+	estr := encrypt(str)
+	fmt.Println("estr", "/proxy/"+estr)
+
+	encryptedRef := strings.TrimPrefix("/proxy/"+estr, "/proxy/")
+	fmt.Sprintln("encryptedRef", encryptedRef)
+
+	s1, err := decrypt(encryptedRef)
+	if err != nil {
+		fmt.Sprintln(err)
+	}
+	fmt.Sprintln(s1)
 }
 
 func MeasureTime(ctx context.Context, funcName string, extraData ...interface{}) func() {
@@ -62,4 +75,17 @@ func getTimeDay(hm string, y, m, d int) int64 {
 	ns = fmt.Sprintf("%s %s", ns, hm)
 	t, _ := time.ParseInLocation("2006-01-02 15:04", ns, time.Local)
 	return t.Unix() * 1e3
+}
+
+func encrypt(str string) string {
+	b := []byte(str)
+	return base64.StdEncoding.EncodeToString(b)
+}
+
+func decrypt(str string) (string, error) {
+	b, err := base64.StdEncoding.DecodeString(str)
+	if err != nil {
+		return "", err
+	}
+	return string(b), nil
 }
