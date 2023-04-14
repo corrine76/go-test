@@ -3,10 +3,10 @@ package main
 import (
 	"context"
 	"encoding/base64"
+	"encoding/json"
 	"fmt"
 	"git.dustess.com/mk-base/util/date"
 	"sort"
-	"strings"
 	"time"
 )
 
@@ -17,19 +17,38 @@ func (s intSlice) Len() int           { return len(s) }
 func (s intSlice) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
 func (s intSlice) Less(i, j int) bool { return s[i] < s[j] }
 
+type NodeConfig struct {
+	ExecUserType   int            `json:"exec_user_type"`   // [动作]执行对象
+	RoleSelection  []string       `json:"role_selection"`   // [动作]执行角色
+	ExecUserFilter ExecUserFilter `json:"exec_user_filter"` // [动作]执行对象筛选
+}
+
+type ExecUserFilter struct {
+	Logic int                    `json:"logic"` // 筛选逻辑关系
+	Items []ExecUserFilterSingle `json:"items"` // 内容
+}
+
+type ExecUserFilterSingle struct {
+	Type        int      `json:"type"`        // 筛选项类型
+	UserFollows []string `json:"userFollows"` // 员工跟进+共享关系
+	UserRoles   []string `json:"userRoles"`   // 员工角色
+	UserDepts   []int64  `json:"userDepts"`   // 员工部门
+}
+
 func main() {
-	str := "http://www.abc.com?ref=123"
-	estr := encrypt(str)
-	fmt.Println("estr", "/proxy/"+estr)
-
-	encryptedRef := strings.TrimPrefix("/proxy/"+estr, "/proxy/")
-	fmt.Sprintln("encryptedRef", encryptedRef)
-
-	s1, err := decrypt(encryptedRef)
+	str := "eyJhZGRfdGFncyI6IFtdLCAiYXBwb2ludF90aW1lIjogeyJkYXRlX3N0ciI6ICIiLCAiZGF5IjogMH0sICJjdXN0b21lcl9maWxlZCI6IG51bGwsICJkZWxheV90aW1lIjogIiIsICJkZWxheV90aW1lX3R5cGUiOiAwLCAiZXhlY191c2VyX3R5cGUiOiA1LCAiZXhlY3V0ZV9kZXB0IjogW10sICJleGVjdXRlX3VzZXIiOiBudWxsLCAiZ3JvdXBPd25lclNlbGVjdGVkIjogMCwgImluZm9ybV92YWx1ZSI6IG51bGwsICJpbmZvcm1fd2F5IjogMSwgImlzX2FsbG93X21hc3NfaGVscGVyIjogZmFsc2UsICJpc19oaWRlX25vdGljZV9ibG9jayI6IHRydWUsICJub2RlX3Rhc2tfaWQiOiAiIiwgIm92ZXJkdWVfY29udGludWUiOiAyLCAib3ZlcmR1ZV90aW1lX3NldCI6ICIwMDcwMDAwMDAiLCAib3ZlcmR1ZV93YXJuIjogIiIsICJyZW1vdmVfdGFncyI6IFtdLCAicm9sZV9zZWxlY3Rpb24iOiBbImZvbGxvd2VyIl0sICJzaGFwZSI6ICJ2dWUtc2hhcGUifQ=="
+	fmt.Sprintln(str)
+	// 编写base64解码
+	// 解码
+	decodeBytes, err := base64.StdEncoding.DecodeString(str)
 	if err != nil {
-		fmt.Sprintln(err)
+		fmt.Println(err)
 	}
-	fmt.Sprintln(s1)
+	nodeConfig := &NodeConfig{}
+	if err := json.Unmarshal(decodeBytes, nodeConfig); err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(nodeConfig)
 }
 
 func MeasureTime(ctx context.Context, funcName string, extraData ...interface{}) func() {
