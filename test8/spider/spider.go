@@ -1,4 +1,4 @@
-package main
+package spider
 
 import (
 	"encoding/json"
@@ -7,19 +7,9 @@ import (
 	"os"
 )
 
-// Course stores information about a coursera course
-type Course struct {
-	URL         string
-	Cover       string
-	Title       string
-	Creator     string
-	Description string
-	Categories  []string
-}
-
-func spiderV1() {
+func V1() {
 	// 文件暂存
-	movies := make([]Course, 0, 200)
+	movies := make([]Movie, 0, 200)
 	fName := "go-spider-test.json"
 	file, err := os.Create(fName)
 	if err != nil {
