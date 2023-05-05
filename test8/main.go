@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	spider.V2()
+	spider.V3()
 }
 
 func run() {

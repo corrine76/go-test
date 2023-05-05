@@ -8,6 +8,8 @@ import (
 	"os"
 )
 
+// V2 is the second version of spider
+// 根据spider.html的内容，获取电影信息
 func V2() {
 	// 文件暂存
 	fName := "go-spider-test-v2.json"
@@ -42,7 +44,7 @@ func V2() {
 
 		// 获取详情页URL
 		href, _ := e.DOM.Find(".name a").Attr("href")
-		detailURL := "https://example.com" + href // example.com替换为实际网站的域名
+		detailURL := "https://ssr1.scrape.center" + href
 
 		movie := Movie{}
 		movie.Name = name
