@@ -35,6 +35,10 @@ func V3() {
 	concerts := make([]Concert, 0)
 	c := colly.NewCollector()
 
+	// todo 获取到热门城市id
+	// <span class="hot-item single-city" data-citypinyin="beijing" data-cityname="北京" data-cityid="1101">北京</span>
+	// 遍历热门城市演唱会列表
+
 	page := 1
 	for {
 		c.OnRequest(func(r *colly.Request) {
