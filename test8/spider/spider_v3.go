@@ -39,6 +39,8 @@ func V3() {
 	// <span class="hot-item single-city" data-citypinyin="beijing" data-cityname="北京" data-cityid="1101">北京</span>
 	// 遍历热门城市演唱会列表
 
+	// todo 获取到其他类别的活动信息
+
 	page := 1
 	for {
 		c.OnRequest(func(r *colly.Request) {
