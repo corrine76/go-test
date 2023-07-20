@@ -1,9 +1,17 @@
 package main
 
 import (
-	"test8/spider"
+	"fmt"
+	"reflect"
 )
 
+type as struct {
+	a int
+}
+
 func main() {
-	spider.V3()
+	// spider.V3()
+
+	v := &as{}
+	fmt.Println(reflect.DeepEqual(v, &as{}))
 }
