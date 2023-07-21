@@ -1,10 +1,10 @@
 package main
 
 import (
-	"fmt"
 	"github.com/kkdai/youtube/v2"
 	"io"
 	"os"
+	"test9/funcs"
 )
 
 func ExampleClient() {
@@ -35,6 +35,7 @@ func ExampleClient() {
 }
 
 func main() {
-	ExampleClient()
-	fmt.Println("视频下载完成！")
+	// ExampleClient()
+	// fmt.Println("视频下载完成！")
+	funcs.DataParse()
 }
